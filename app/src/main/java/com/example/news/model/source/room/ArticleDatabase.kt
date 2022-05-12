@@ -1,11 +1,10 @@
-package com.example.news.repository.database
+package com.example.news.model.source.room
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.news.fragments.BreakingNewsFragment
 import com.example.news.model.Article
 
 @Database(

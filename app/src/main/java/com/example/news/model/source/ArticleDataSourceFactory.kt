@@ -1,4 +1,4 @@
-package com.example.news.repository.datasource
+package com.example.news.model.source
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource

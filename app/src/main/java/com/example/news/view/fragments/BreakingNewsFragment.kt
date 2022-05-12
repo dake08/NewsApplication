@@ -1,4 +1,4 @@
-package com.example.news.fragments
+package com.example.news.view.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -6,15 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.news.R
-import com.example.news.adapters.ArticleAdapter
-import com.example.news.repository.NewsRepository
-import com.example.news.repository.database.ArticleDatabase
+import com.example.news.view.adapters.ArticleAdapter
 import com.example.news.utils.Resource
-import com.example.news.utils.shareNews
 import com.example.news.viewmodel.NewsViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_breaking_news.*
@@ -54,9 +50,6 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
             Snackbar.make(requireView(), "Removed", Snackbar.LENGTH_SHORT).show()
         }
 
-        newsAdapter.onShareClickListener {
-            shareNews(context, it)
-        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

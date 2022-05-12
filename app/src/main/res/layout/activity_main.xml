@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -31,7 +31,7 @@
         android:layout_height="56dp"
         android:id="@+id/bottomNavigationView"
         app:labelVisibilityMode="selected"
-        app:menu="@menu/bottom_navbar_menu"
+        app:menu="@menu/navbar_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

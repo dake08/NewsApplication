@@ -1,4 +1,4 @@
-package com.example.news.fragments
+package com.example.news.view.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,21 +10,20 @@ import android.webkit.WebViewClient
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.news.R
-import com.example.news.databinding.FragmentArticlesBinding
 import com.example.news.viewmodel.NewsViewModel
-import kotlinx.android.synthetic.main.fragment_articles.*
+import kotlinx.android.synthetic.main.fragment_article.*
 
-class ArticlesFragment : Fragment() {
+class ArticleFragment : Fragment() {
 
     private val viewModel: NewsViewModel by viewModels()
-    val args: ArticlesFragmentArgs by navArgs()
+    val args: ArticleFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_articles, container, false)
+        return inflater.inflate(R.layout.fragment_article, container, false)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

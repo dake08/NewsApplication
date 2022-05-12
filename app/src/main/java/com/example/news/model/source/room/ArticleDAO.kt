@@ -1,4 +1,4 @@
-package com.example.news.repository.database
+package com.example.news.model.source.room
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

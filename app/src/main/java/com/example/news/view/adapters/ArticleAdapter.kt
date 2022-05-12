@@ -1,4 +1,4 @@
-package com.example.news.adapters
+package com.example.news.view.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.util.Util
 import com.example.news.R
 import com.example.news.databinding.ItemArticleBinding
 import com.example.news.model.Article
@@ -23,9 +22,9 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>(){
             override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
                 return newItem.title == newItem.title
             }
-
         }
     }
+
     class ArticleViewHolder(var view : ItemArticleBinding) : RecyclerView.ViewHolder(view.root)
 
     val differ = AsyncListDiffer(this, diffUtilCallback)
@@ -45,14 +44,6 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>(){
             onItemClickListener?.let{
                 article.let{ article ->
                     it(article)
-                }
-            }
-        }
-
-        holder.view.ivShare.setOnClickListener {
-            onShareNewsClick?.let{
-                article.let{ it1 ->
-                    it(it1)
                 }
             }
         }
@@ -90,7 +81,6 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>(){
     private var onItemClickListener: ((Article) -> Unit)? = null
     private var onArticleSaveClick: ((Article) -> Unit)? = null
     private var onArticleDeleteClick: ((Article) -> Unit)? = null
-    private var onShareNewsClick: ((Article) -> Unit)? = null
 
     fun setOnItemClickListener(listener: (Article) -> Unit){
         onItemClickListener = listener
@@ -100,9 +90,6 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>(){
     }
     fun onDeleteClickListener(listener: (Article) -> Unit){
         onArticleDeleteClick = listener
-    }
-    fun onShareClickListener(listener: (Article) -> Unit){
-        onShareNewsClick = listener
     }
 
 }

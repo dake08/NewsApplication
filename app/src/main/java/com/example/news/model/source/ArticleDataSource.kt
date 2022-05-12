@@ -1,28 +1,20 @@
-package com.example.news.repository.datasource
+package com.example.news.model.source
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
-import com.bumptech.glide.load.engine.Resource
 import com.example.news.model.Article
-import com.example.news.model.News
-import com.example.news.repository.service.RetrofitClient
-import com.example.news.utils.Constants
+import com.example.news.model.data.News
+import com.example.news.model.source.retrofit.RetrofitClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
 class ArticleDataSource(val scope: CoroutineScope) : PageKeyedDataSource<Int, Article>(){
 
-    // for breaking news
     val breakingNews: MutableLiveData<MutableList<Article>> = MutableLiveData()
     var breakingPageNumber = 1
     var breakingNewsResponse: News? = null
-
-    // for searching news
-    val searchNews: MutableLiveData<Resource<News>> = MutableLiveData()
-    var searchPageNumber = 1
-    var searchNewsResponse: News? = null
 
     override fun loadInitial(
         params: LoadInitialParams<Int>,
@@ -30,7 +22,7 @@ class ArticleDataSource(val scope: CoroutineScope) : PageKeyedDataSource<Int, Ar
     ) {
         scope.launch{
             try{
-                val response = RetrofitClient.api.getBreakingNews("us",1,Constants.API_KEY)
+                val response = RetrofitClient.api.getBreakingNews("fr",1,"0f77dc2c8a3548dfabce9b5e8580cd89")
                 when{
                     response.isSuccessful -> {
                         response.body()?.articles?.let{
@@ -53,7 +45,7 @@ class ArticleDataSource(val scope: CoroutineScope) : PageKeyedDataSource<Int, Ar
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, Article>) {
         try{
             scope.launch{
-                val response = RetrofitClient.api.getBreakingNews("us",params.requestedLoadSize,Constants.API_KEY)
+                val response = RetrofitClient.api.getBreakingNews("fr",params.requestedLoadSize,"0f77dc2c8a3548dfabce9b5e8580cd89")
                 when{
                     response.isSuccessful -> {
                         response.body()?.articles?.let{

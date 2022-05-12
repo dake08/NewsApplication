@@ -1,20 +1,15 @@
-package com.example.news
+package com.example.news.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.news.databinding.ActivityMainBinding
-import com.example.news.repository.NewsRepository
-import com.example.news.repository.database.ArticleDatabase
-import com.example.news.viewmodel.NewsViewModel
 import androidx.navigation.findNavController
+import com.example.news.R
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    lateinit var viewModel: NewsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

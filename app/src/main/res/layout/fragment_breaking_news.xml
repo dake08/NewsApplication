@@ -7,7 +7,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragments.BreakingNewsFragment">
+        tools:context=".view.fragments.BreakingNewsFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
