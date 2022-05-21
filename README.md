@@ -1,4 +1,4 @@
-# Project - Application has bottom navigation bar with menu having two items that navigate between main two fragments
-First fragment layout shows All articles, where we can save or open article.
-Second fragment layout shows User Saved articles.
-Also, app has third fragment Article ( shows only detailed article)
+# Project - NEWS Application
+STACK: MVVM pattern, Retrofit, Room, DI, Navigation, Fragment
+News app fetch news from https://newsapi.org/.
+Application's start page - breaking news. Second page - search news. Third - saved news
